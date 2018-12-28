@@ -16,6 +16,7 @@ class Cambridge(Translator):
         self.new_url = os.path.join(self.base_url, 'dictionary/english', self.text)
 
     def parse_data(self):
+        self.result = {}
         if self.data is None:
             return {}
         soup = BeautifulSoup(self.data, 'lxml')
@@ -27,8 +28,8 @@ class Cambridge(Translator):
             #part_of_speech = ""
             if countable:
                 part_of_speech += ' [%s]' % (countable[0].getText())
-        uk_phonetic = soup.find_all('span', {'class': 'pron'})[0].getText()  # extract pronunciation
-        us_phonetic = soup.find_all('span', {'class': 'pron'})[1].getText()  # extract pronunciation
+        uk_phonetic = soup.find_all('span', {'class': 'pron'})[0].getText()
+        us_phonetic = soup.find_all('span', {'class': 'pron'})[1].getText()
 
         voices = soup.select('span[data-src-mp3]')  # get voice of us and uk accent
         if voices:
@@ -40,4 +41,3 @@ class Cambridge(Translator):
         self.result['part_of_speech'] = part_of_speech
         self.result['pronunciation'] = us_phonetic
         self.result['definition'] = definition.replace(':', '')
-        return self.result
