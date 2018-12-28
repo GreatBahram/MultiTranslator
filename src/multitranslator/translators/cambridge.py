@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 
+from .translator import Translator
+
 
 class Cambridge(Translator):
     """Download the meaning of WORD from http://dictionary.cambridge.org/dictionary/english/ """

@@ -1,11 +1,11 @@
-from . import Cambridge, FastDic
+from . import Cambridge, Fastdict
 
 
 class MultiTranslator:
     def __init__(self, word):
         self.dictionaries = [
             Cambridge,
-            FastDic,
+            Fastdict,
         ]
 
     def search(self, word):

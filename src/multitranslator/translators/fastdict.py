@@ -1,4 +1,7 @@
-class FastDic(Translator):
+from .translator import Translator
+
+
+class Fastdict(Translator):
     """Download the meaning of WORD from http://fastdic.com/word"""
     def __init__(self, word):
         super().__init__(self, word)
