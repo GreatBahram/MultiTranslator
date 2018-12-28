@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-assert version_info >= (3, 0, 0), 'Multitranslator requires Python >=3.0.0'
+assert version_info >= (3, 6, 1), 'Multitranslator requires Python >= 3.6.1'
 
 INSTALL_DEPS = [
     'requests',
@@ -38,5 +38,7 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
         'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
 )
