@@ -7,7 +7,7 @@ class Translator(metaclass=ABCMeta):
     """ Base Translator class """ 
     def __init__(self, frm_lang=None, to_lang=None, headers={}):
         self.name = ""
-        self.dict_url = ""
+        self.base_url = ""
         self.frm_lang = frm_lang
         self.to_lang = to_lang
         self.headers = headers
@@ -20,7 +20,7 @@ class Translator(metaclass=ABCMeta):
         self.parse_data()
 
     def initialize_url(self):
-        self.new_url = self.dict_url + self.text
+        self.new_url = self.base_url + self.text
 
     def get_data(self):
         data = None

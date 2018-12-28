@@ -9,7 +9,7 @@ class Cambridge(Translator):
     def __init__(self):
         super().__init__(self)
         self.name = "cambridge"
-        self.dict_url = "http://dictionary.cambridge.org/dictionary/english/"
+        self.base_url = "http://dictionary.cambridge.org/dictionary/english/"
 
     def parse_data(self):
         if self.data is None:
