@@ -11,8 +11,11 @@ pip install multitranslator
 it's very easy and joyable.
 
 ```python
-from multitranslator import Cambridge, MultiTranslator
+from multitranslator.translators import Cambridge, MultiTranslator
+
 cambridge = Cambridge()
+
 cambridge.translate('home')
+
 print(cambridge.to_dict())
 ```
