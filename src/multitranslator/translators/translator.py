@@ -5,11 +5,10 @@ import requests
 
 class Translator(metaclass=ABCMeta):
     """ Base Translator class """ 
-    def __init__(self, frm_lang=None, to_lang=None, headers={}):
+    def __init__(self, params={}, headers={}):
         self.name = ""
         self.base_url = ""
-        self.frm_lang = frm_lang
-        self.to_lang = to_lang
+        self.params = params
         self.headers = headers
         self.result = {}
 
