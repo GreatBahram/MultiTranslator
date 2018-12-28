@@ -7,10 +7,11 @@ class Translator(metaclass=ABCMeta):
     """ Base Translator class """ 
     def __init__(self, src=None, dst=None, headers={}):
         self.name = ""
-        self.url = ""
+        self.dict_url = ""
         self.src = src
         self.dst = dst
         self.headers = headers
+        self.result = {}
 
     def tranlsate(self, text):
         self.text = text
@@ -18,20 +19,19 @@ class Translator(metaclass=ABCMeta):
         self.get_data()
         self.parse_data()
 
-    @abstractmethod
     def initialize_url(self):
-        url = self.url
-        self.new_url = self.url + self.word
+        self.new_url = self.dict_url + self.word
 
-    @abstractmethod
     def get_data(self, word):
+        data = None
         response = requests.get(self.new_url, headers = self.headers)
         if response.status_code == requests.codes.ok:
-            return response.text
+            data = response.text
+        self.data = data
 
     @abstractmethod
     def parse_data(self):
         pass
 
-    def to_dict(self, filename, link):
+    def to_dict(self):
         pass
