@@ -3,6 +3,7 @@
 - Add Cambridge backned
 - Clean Base class 'Translator'
 - Clean the previous code
+- Add some exceptions
 
 ## 0.0.1 (2018-12-28)
 
