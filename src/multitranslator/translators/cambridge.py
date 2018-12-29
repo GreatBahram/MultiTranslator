@@ -18,7 +18,7 @@ class Cambridge(Translator):
     def parse_data(self):
         self.result = {}
         if self.data is None:
-            return {}
+            return self.result
         soup = BeautifulSoup(self.data, 'lxml')
         part_of_speech = soup.find_all('span', {'class': 'pos'})[0].getText()
         if part_of_speech == 'idiom':
@@ -27,7 +27,7 @@ class Cambridge(Translator):
             countable = soup.find_all('span', {'class': 'gcs'})
             #part_of_speech = ""
             if countable:
-                part_of_speech += ' [%s]' % (countable[0].getText())
+                part_of_speech += f' [{countable[0].getText()}]'
         uk_phonetic = soup.find_all('span', {'class': 'pron'})[0].getText()
         us_phonetic = soup.find_all('span', {'class': 'pron'})[1].getText()
 

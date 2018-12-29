@@ -14,8 +14,9 @@ class Fastdict(Translator):
         self.new_url = os.path.join(self.base_url, 'word', word)
 
     def parse_data(self, word):
+        self.result = {}
         if response is None:
-            return {}
+            return self.result
         soup = BeautifulSoup(response, 'lxml')
         meaning = soup.find_all('ul', {'class': ['result', 'js-result']})
         if meaning:
@@ -25,4 +26,4 @@ class Fastdict(Translator):
             meaning = meaning.select('li')[0].getText()
             meaning = str(meaning).strip().split('\n')
             mean = str(meaning[0]).split('،')
-            return {'Persian_Mean': mean}
+            self.result = {'Persian_Mean': mean}
